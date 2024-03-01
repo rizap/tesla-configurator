@@ -1,15 +1,17 @@
-import {Component} from '@angular/core';
-import {AsyncPipe, JsonPipe} from '@angular/common';
+import {Component, ViewEncapsulation} from '@angular/core';
+import {CommonModule} from '@angular/common';
+import {RouterLink, RouterLinkActive, RouterOutlet} from "@angular/router";
+import {MatTabLink, MatTabNav, MatTabNavPanel} from "@angular/material/tabs";
+import {ThemePalette} from "@angular/material/core";
+import {HeaderComponent} from "./header/header.component";
 
 @Component({
   selector: 'app-root',
   standalone: true,
-  imports: [AsyncPipe, JsonPipe],
-  template: `
-    <h1>Hello from {{ name }}!</h1>
-  `,
+  imports: [CommonModule, RouterOutlet, RouterLink, RouterLinkActive, MatTabLink, MatTabNav, MatTabNavPanel, HeaderComponent
+  ],
+  templateUrl: 'app.component.html'
 })
 export class AppComponent {
-  name = 'Angular';
 
 }

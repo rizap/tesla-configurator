@@ -1,2 +1,19 @@
 /* You can add global styles to this file, and also import other style files */
 @import "../node_modules/mini.css/dist/mini-dark.min.css";
+@import '../node_modules/@angular/material/prebuilt-themes/indigo-pink.css';
+
+.mdc-tab__text-label {
+  color: white !important;
+}
+
+.mdc-tab-indicator__content--underline {
+  border: none !important;
+}
+
+.mat-mdc-tab-link {
+  border: 1px solid gray !important;
+}
+
+nav {
+  border: none !important;
+}
