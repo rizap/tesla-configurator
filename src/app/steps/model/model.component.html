@@ -1,0 +1,29 @@
+<form [formGroup]="modelForm">
+<h2>Step 1: Choose your Model and color</h2>
+  <div class="option-container">
+    <div class="model">
+      <label>Model:</label>
+      <select name="models" id="modelSelect" formControlName="currentModel">
+        @for (m of models; track i; let  i = $index) {
+          @if (i === 0 ) {
+            <option value="" selected>Choose...</option>
+          } @else {
+            <option [value]="m.code">{{m.description}}</option>
+          }
+        }
+      </select>
+    </div>
+    @if (modelForm.controls['currentModel']?.value ) {
+      <div class="color">
+        <label>Color:</label>
+        <select id="colorSelect" formControlName="currentColor">
+          @for (c of modelColors; track $index) {
+            <option [value]="c.code">{{c.description}}</option>
+          }
+        </select>
+      </div>
+    }
+  </div>
+
+  <app-image [selectedImage]="modelForm.get('imagePath')?.value" [alt]="modelInfo?.description"></app-image>
+</form>

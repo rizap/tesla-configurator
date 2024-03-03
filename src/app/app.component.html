@@ -1,2 +1,5 @@
-<app-header></app-header>
-<router-outlet />
+<app-header [tabPanel]="tabPanel"></app-header>
+<mat-tab-nav-panel #tabPanel>
+  <router-outlet />
+</mat-tab-nav-panel>
+

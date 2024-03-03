@@ -1,0 +1,39 @@
+<form [formGroup]="configForm">
+  <h2>Step 2: Select your config and options</h2>
+  <div class="option-container">
+    <div class="model">
+      <label>Model:</label>
+      <select name="models" id="configSelect" formControlName="currentConfig">
+        @for (r of configInfo?.configs; track i; let  i = $index) {
+          @if (i === 0 ) {
+            <option value="" selected>Choose...</option>
+          } @else {
+            <option [value]="r.id">{{r.description}}</option>
+          }
+        }
+      </select>
+    </div>
+    @if (selectedConfig ) {
+      <div>
+       <label>Range: </label><span>{{selectedConfig?.range}} miles - Max speed: {{selectedConfig?.speed}} - Cost: {{selectedConfig?.price | currencyFormat}}</span>
+      </div>
+    }
+
+    @if (configInfo?.towHitch ) {
+      <div>
+        <label>Tow hitch?: </label><span><input id="includeTow" type="checkbox" formControlName="includeTow"></span>
+      </div>
+    }
+
+    @if (configInfo?.yoke) {
+      <div>
+        <label>Yoke steering wheel?: </label><span><input id="includeYoke" type="checkbox" formControlName="includeYoke"></span>
+      </div>
+    }
+
+  </div>
+
+  @if (imagePath) {
+    <app-image [selectedImage]="imagePath"></app-image>
+  }
+</form>

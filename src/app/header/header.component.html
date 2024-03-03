@@ -1,8 +1,7 @@
 <nav mat-tab-nav-bar [backgroundColor]="background" [tabPanel]="tabPanel">
   @for (row of routes; track row) {
-    <a mat-tab-link
+    <a mat-tab-link [disabled]="row.disabled" [id]="row.id"
        [routerLink]="row.link"
        [active]="activeLink === row.link"> {{row.label}} </a>
   }
 </nav>
-<mat-tab-nav-panel #tabPanel></mat-tab-nav-panel>

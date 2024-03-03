@@ -1,0 +1,53 @@
+<h1>Step 3: Summary</h1>
+
+@if (selectedModel && selectedConfig) {
+  <div class="step-3-container">
+    <h2>Your Tesla {{ selectedModel.description }}</h2>
+
+    <table>
+      <tbody>
+        @if (selectedConfig.config) {
+          <tr>
+            <td class="option"><strong>{{ selectedConfig.config.description }}</strong></td>
+            <td>{{ selectedConfig.config.price | currencyFormat}}</td>
+          </tr>
+        }
+
+        @if (selectedConfig.config?.range) {
+          <tr>
+            <td>Range - {{ selectedConfig.config.range }} miles - Max speed: {{ selectedConfig.config.speed }}</td>
+          </tr>
+        }
+
+        @if (selectedModel.color.description) {
+          <tr>
+            <td class="option"><strong>{{ selectedModel.color.description }} Color</strong></td>
+            <td> {{ selectedModel.color.price | currencyFormat}}</td>
+          </tr>
+        }
+
+        @if (selectedConfig.towHitch) {
+          <tr>
+            <td class="option"><strong>Tow Hitch Package</strong></td>
+            <td>{{ ADDITIONAL_CONFIG_PRICE | currencyFormat }}</td>
+          </tr>
+        }
+
+        @if (selectedConfig.yoke) {
+          <tr>
+            <td class="option"><strong>Yoke Package</strong></td>
+            <td>{{ ADDITIONAL_CONFIG_PRICE | currencyFormat }}</td>
+          </tr>
+        }
+
+        @if (totalPrice) {
+          <tr class="top-border">
+            <td class="total"><strong>TOTAL COST</strong></td>
+            <td>{{ totalPrice | currencyFormat}}</td>
+          </tr>
+        }
+      </tbody>
+    </table>
+  </div>
+  <app-image [selectedImage]="selectedModel.imagePath" [alt]="selectedModel.description"></app-image>
+}

@@ -1,18 +1,18 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { PageNotFoundComponent } from './page-not-found.component';
+import { ImageViewerComponent } from './image-viewer.component';
 
-describe('PageNotFoundComponent', () => {
-  let component: PageNotFoundComponent;
-  let fixture: ComponentFixture<PageNotFoundComponent>;
+describe('ViewerComponent', () => {
+  let component: ImageViewerComponent;
+  let fixture: ComponentFixture<ImageViewerComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [PageNotFoundComponent]
+      imports: [ImageViewerComponent]
     })
     .compileComponents();
-    
-    fixture = TestBed.createComponent(PageNotFoundComponent);
+
+    fixture = TestBed.createComponent(ImageViewerComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });
